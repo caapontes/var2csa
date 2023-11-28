@@ -1,0 +1,78 @@
+##### Completion of VAR2CSA head region (modelling missing loops and regions), extension of CSA chain from 11 to 21 sugars, and SD relaxation. Relevant input/output files as well as scripts are listed.
+
+
+
+##### 
+##### A) Modeller 
+#Input:
+structures/modeller-chimera-dbl1-id3/input
+#OUTPUT:
+structures/modeller-chimera-dbl1-id3/m?.pdb
+#Note: very similar output conformations m2.pdb was selected
+
+
+##### B) Fit to 7jgh cryo-EM structure (protein+ 11mer CSA sugar)
+structures/7jgh.pdb
+MD-11mer/charmm36-feb2021.ff 
+minimization_cryo_posres.mdp
+
+protein-topol.sh
+get-7jgh-posres-ref.sh
+
+#OUTPUT 
+protein-topol/conf-cryo.pdb
+protein-topol/protein.itp
+protein-topol/posre.itp
+protein-topol/posre-protein-cryo.itp
+
+
+
+##### C) topology files of CSA 11 mer + protein fragment (protein fragment only used as input for CHARMM-GUI and alignment later):
+#INPUT: conf-cryo.pdb
+
+#OUTPUT:
+charmm36m-parameters/sugar/charmm-gui-resid-50-130-856-858/charmm-gui.tgz
+charmm36m-parameters/sugar/charmm-gui-resid-50-130-856-858/charmm-gui-2391589150/gromacs/step3_input.gro
+
+#### D) SD relaxation: protein+11mer
+sd-relaxation-protein-11mer.sh
+sd-loop-relax.mdp
+
+
+#OUTPUT:
+MD-11mer/sd-loop-relax.tpr
+MD-11mer/sd-loop-relax.gro
+
+
+
+##### E) prolong CSA chain to 21 monomers:
+prolong_csa_chain.pml
+#OUTPUT:
+#./var2csa_sugar_long_connect.pdb
+
+
+
+#### F) topology of VAR2CSA + CSA 21 mer: via charmm-gui
+
+#OUTPUT: charmm-gui directory including 
+#charmm-gui/gromacs/step3_input.gro
+#charmm-gui/gromacs/topol.top
+#charmm-gui/gromacs/toppar 
+
+
+##### MD SIMULATIONS: CONTINUE IN README-II
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

@@ -1,0 +1,30 @@
+##### DOCKING #####
+
+##### A) Selection of conformations from pulling simulations as input for HADDOCK
+./MD/snapshots-for-docking/MD-dock/*/dist_09_nm.pdb
+ensemble-open-conformations-for-docking.sh
+
+#OUTPUT:
+./MD/snapshots-for-docking/MD-dock/dist-09+sugar.pdb
+
+
+##### B) HADDOCK INPUT FILES:
+# Ensemble of 20 conformations obtained in A
+# CSA 11mer from cryo-EM 7jgh structure:
+./structures/csa-11mer-7jgh.pdb
+
+
+##### C) OUTPUT CONFORMATIONS AFTER DOCKING:
+docking/minor-binding-site/cluster*.pdb
+docking/dbl4-major-binding-site/cluster*.pdb
+
+
+##### D) correct Hydrogens of sugars in docked conformations:
+correct_H-sugars_docking_poses.sh
+
+#OUTPUT (energy-minimized in vacuum conformations and topology):
+./docking/*-binding-site/*/*gro
+./docking/dbl4-major-binding-site/topol.top
+./docking/dbl4-major-binding-site/toppar/
+# These conformations were used for further equilibrium MD simulations. See protocol in README-II and methods. 
+

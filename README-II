@@ -1,0 +1,29 @@
+##### MD SIMULATIONS FILES
+
+!! Important note: these files are provided as is! scripts and top files include original file names. Paths need to be adapted by the user to their system!!
+
+!! tpr files should work for gromacs 2021 or newer.
+
+
+TPR, GRO files, topologies, and other necessary files to generate the TPR files, for each step in the setup from minimization -> equilibation (nvt, npt) -> production can be found in the resprective directories:
+
+MD-equil/ ... equilibirum simulations VAR2CSA/CSA comlex
+MD-pull/ ... force-probe simulations
+MD-dock-equil/ ... equilibrium simulations of VAR2CSA complex with CSA-dodecamer docked to cryptic binding sites
+
+_pp.* is without water for processing and visualization purposes.
+
+
+MDP files are also provided. 
+
+
+
+
+##### MD analysis:
+The analysis code reported in the methods can be found in
+analysis-var2csa.ipynb and review-var2csa.ipynb.
+
+Time-traces of the observables extracted from the simulations are provided in xvg format.
+
+
+

@@ -1,0 +1,75 @@
+integrator              = md
+dt                      = 0.002
+nsteps = 50000000 ; 100 ns
+nstlog                  = 1000
+nstxout = 500000 ; 1 ns for trr
+nstxout-compressed       = 5000 ; 10 ps in xtc
+nstvout = 500000 ; 1 ns
+nstfout = 500000 ; 1 ns
+nstcalcenergy           = 100
+nstenergy               = 1000
+;
+cutoff-scheme           = Verlet
+nstlist                 = 20
+rlist                   = 1.2
+coulombtype             = pme
+rcoulomb                = 1.2
+vdwtype                 = Cut-off
+vdw-modifier            = Force-switch
+rvdw_switch             = 1.0
+rvdw                    = 1.2
+;
+tcoupl                  = Nose-Hoover
+tc_grps                 = Protein non-Protein
+tau_t                   = 1.0  1.0 
+ref_t                   = 310  310 
+;
+;pcoupl                  = Parrinello-Rahman
+;pcoupltype              = isotropic
+;tau_p                   = 5.0
+;compressibility         = 4.5e-5
+;ref_p                   = 1.0   
+;
+constraints             = h-bonds
+constraint_algorithm    = LINCS
+continuation            = yes
+;
+nstcomm                 = 100
+comm_mode               = linear
+comm_grps               = System
+;
+refcoord_scaling        = com
+
+; COM PULLING          
+pull                     = yes
+pull-nstxout             = 50
+pull-nstfout             = 50
+; Number of pull groups 
+pull-ngroups             = 2
+; Number of pull coordinates
+pull-ncoords             = 2
+; Group and coordinate parameters
+pull-group1-name         = r_1_&_BGLCA_&_a_30801-30822
+pull-group2-name         = r_1930_&_CA
+
+pull-coord1-type         = flat-bottom-high
+pull-coord1-geometry     = direction
+pull-coord1-init         = 0
+pull-coord1-groups       = 0 1
+pull-coord1-dim          = Y N N
+pull-coord1-origin       = 5.1 0 0 
+pull-coord1-vec          = 1.0 0.0 0.0
+pull-coord1-start        = yes
+pull-coord1-rate         = -0.0001 ; nm/ps
+pull-coord1-k            = 1000
+
+pull-coord2-type         = flat-bottom-high
+pull-coord2-geometry     = direction
+pull-coord2-init         = 0
+pull-coord2-groups       = 0 2
+pull-coord2-dim          = Y N N
+pull-coord2-origin       = 18.2 0 0 
+pull-coord2-vec          = 1.0 0.0 0.0
+pull-coord2-start        = yes
+pull-coord2-rate         = 0.0001
+pull-coord2-k            = 1000

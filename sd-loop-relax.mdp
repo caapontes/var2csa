@@ -1,0 +1,45 @@
+define                  = 
+integrator              = sd
+dt                      = 0.002
+nsteps                  = 50000000
+nstxtcout               = 500000
+nstvout                 = 0
+nstfout                 = 0
+nstcalcenergy           = 100
+nstenergy               = 1000
+nstlog                  = 1000
+;
+cutoff-scheme           = Verlet
+nstlist                 = 20
+rlist                   = 1.2
+vdwtype                 = Cut-off
+vdw-modifier            = Force-switch
+rvdw_switch             = 1.0
+rvdw                    = 1.2
+coulombtype             = Reaction-Field
+rcoulomb                = 1.2
+epsilon-rf              = 80
+
+;
+tcoupl                  = no
+tau_t                   = 0.002 
+ref_t                   = 500
+tc-grps                   = System
+;
+constraints             = h-bonds
+constraint_algorithm    = LINCS
+;
+nstcomm                 = 100
+comm_mode               = linear
+
+;
+gen-vel                 = yes
+gen-temp                = 500
+gen-seed                = -1
+;
+refcoord_scaling        = com
+
+
+; non-loops will be frozen
+freezegrps = !Protein_&_r_407-485_Protein_&_r_529-556
+freezedim = Y Y Y
