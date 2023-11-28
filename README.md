@@ -1,13 +1,13 @@
 Data of
 Mechanical forces control the valency of the malaria adhesin VAR2CSA by exposing cryptic glycan binding sites
-
 by:
 Rita Roessner, Nicholas Michelarakis, Frauke Gräter, and Camilo Aponte-Santamaría
-
-doi: XXXXXXXXX 
+Currently under review for publication. 
+BioRxiv preprint: https://doi.org/10.1101/2023.07.31.550984 
 
 For use related to these data, please cite this article.
 
+Scripts to setup the MD simulations and to analyze the output data are included.  All Relevant output data are within the manuscript and its Supporting Information files. Extensive metadata will be uploaded at the HeiDATA repository of the Heidelberg University soon.   
 
 The data is divided in four sections:
 1) README-I: generation of complete model of the VAR2CSA head region in complex with the CSA 21 chain.
@@ -15,7 +15,5 @@ The data is divided in four sections:
 3) README-III:  Molecular docking
 4) Force distribution analysis: FDA directory
 
-Compressed file var2csa_roessner.tar.gz contains all relevant input and output simulation files, as well as code to setup the simulations and analyze the results. It is ~20 GB uncompressed. To access the data please download and decompress the file with:
 
-tar xzvf var2csa_roessner.tar.gz 
 
